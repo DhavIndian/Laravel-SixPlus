@@ -770,12 +770,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "c91ceac11bb1078b1a40e903b97e9c1d8218329f"
+                "reference": "4e00ca17baa9f8402cab74e5b9ddb5bb0fdf25d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/c91ceac11bb1078b1a40e903b97e9c1d8218329f",
-                "reference": "c91ceac11bb1078b1a40e903b97e9c1d8218329f",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/4e00ca17baa9f8402cab74e5b9ddb5bb0fdf25d3",
+                "reference": "4e00ca17baa9f8402cab74e5b9ddb5bb0fdf25d3",
                 "shasum": ""
             },
             "require": {
@@ -867,7 +867,6 @@
                 "laravel/tinker": "Required to use the tinker console command (^1.0).",
                 "league/flysystem-aws-s3-v3": "Required to use the Flysystem S3 driver (^1.0).",
                 "league/flysystem-cached-adapter": "Required to use the Flysystem cache (^1.0).",
-                "league/flysystem-rackspace": "Required to use the Flysystem Rackspace driver (^1.0).",
                 "league/flysystem-sftp": "Required to use the Flysystem SFTP driver (^1.0).",
                 "moontoast/math": "Required to use ordered UUIDs (^1.1).",
                 "pda/pheanstalk": "Required to use the beanstalk queue driver (^4.0).",
@@ -879,7 +878,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "6.0-dev"
+                    "dev-master": "6.x-dev"
                 }
             },
             "autoload": {
@@ -907,7 +906,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2019-08-27T21:49:32+00:00"
+            "time": "2019-08-29T20:00:10+00:00"
         },
         {
             "name": "laravel/passport",
