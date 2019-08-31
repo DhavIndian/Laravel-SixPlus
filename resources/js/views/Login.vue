@@ -4,11 +4,6 @@
             <div class="d-flex justify-content-center h-100">
                 <div class="user_card">
                     <div class="d-flex justify-content-center">
-                        <div class="brand_logo_container">
-                            <img src="/images/logo.png" class="brand_logo" alt="Logo">
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-center form_container">
                         <form v-on:submit.prevent="login">
                             <div class="input-group mb-3">
                                 <div class="input-group-append">
@@ -47,7 +42,7 @@ export default {
             let password = this.password
             this.$store.dispatch('login', { email, password })
                 .then(() => {
-                    this.$router.push({ name: this.$store.state.firstRoute })
+                    this.$router.push({ name: 'about' })
                 })
                 .catch(err => console.log(err))
         }

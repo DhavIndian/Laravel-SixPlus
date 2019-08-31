@@ -1916,33 +1916,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {},
   data: function data() {
@@ -2190,11 +2163,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2214,7 +2182,7 @@ __webpack_require__.r(__webpack_exports__);
         password: password
       }).then(function () {
         _this.$router.push({
-          name: _this.$store.state.firstRoute
+          name: 'about'
         });
       })["catch"](function (err) {
         return console.log(err);
@@ -20499,305 +20467,29 @@ var render = function() {
             _c("nav", { staticClass: "navbar navbar-expand-md navbar-dark" }, [
               _c("div", { staticClass: "collapse navbar-collapse" }, [
                 _c("ul", { staticClass: "navbar-nav float-left" }, [
-                  _vm.$store.state.showroutes[0].userdetail == true
-                    ? _c(
-                        "li",
+                  _c(
+                    "li",
+                    {
+                      staticClass: "nav-item",
+                      class: { active: _vm.$store.state.activeTab == "about" },
+                      nativeOn: {
+                        click: function($event) {
+                          return _vm.changeActiveTab("about")
+                        }
+                      }
+                    },
+                    [
+                      _c(
+                        "router-link",
                         {
-                          staticClass: "nav-item",
-                          class: {
-                            active: _vm.$store.state.activeTab == "userdetail"
-                          },
-                          nativeOn: {
-                            click: function($event) {
-                              return _vm.changeActiveTab("userdetail")
-                            }
-                          }
+                          staticClass: "nav-link",
+                          attrs: { to: { name: "about", params: {} } }
                         },
-                        [
-                          _vm.$store.state.showroutes[0].userdetail == true
-                            ? _c(
-                                "router-link",
-                                {
-                                  staticClass: "nav-link",
-                                  attrs: {
-                                    to: { name: "userdetail", params: {} }
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "User Detail\n                                    "
-                                  )
-                                ]
-                              )
-                            : _vm._e()
-                        ],
-                        1
+                        [_vm._v("About\n                                    ")]
                       )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.$store.state.showroutes[0].beepsoda == true
-                    ? _c(
-                        "li",
-                        {
-                          staticClass: "nav-item",
-                          class: {
-                            active: _vm.$store.state.activeTab == "beepsoda"
-                          },
-                          nativeOn: {
-                            click: function($event) {
-                              return _vm.changeActiveTab("beepsoda")
-                            }
-                          }
-                        },
-                        [
-                          _vm.$store.state.showroutes[0].beepsoda == true
-                            ? _c(
-                                "router-link",
-                                {
-                                  staticClass: "nav-link",
-                                  attrs: {
-                                    to: { name: "beepsoda", params: {} }
-                                  }
-                                },
-                                [_vm._v("BeepSoda")]
-                              )
-                            : _vm._e()
-                        ],
-                        1
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.$store.state.showroutes[0].bookmaker == true
-                    ? _c(
-                        "li",
-                        {
-                          staticClass: "nav-item",
-                          class: {
-                            active: _vm.$store.state.activeTab == "bookmaker"
-                          },
-                          nativeOn: {
-                            click: function($event) {
-                              return _vm.changeActiveTab("bookmaker")
-                            }
-                          }
-                        },
-                        [
-                          _vm.$store.state.showroutes[0].bookmaker == true
-                            ? _c(
-                                "router-link",
-                                {
-                                  staticClass: "nav-link",
-                                  attrs: {
-                                    to: { name: "bookmaker", params: {} }
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "BookMaker\n                                    "
-                                  )
-                                ]
-                              )
-                            : _vm._e()
-                        ],
-                        1
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.$store.state.showroutes[0].btmatch == true
-                    ? _c(
-                        "li",
-                        {
-                          staticClass: "nav-item",
-                          class: {
-                            active: _vm.$store.state.activeTab == "btmatch"
-                          },
-                          nativeOn: {
-                            click: function($event) {
-                              return _vm.changeActiveTab("btmatch")
-                            }
-                          }
-                        },
-                        [
-                          _vm.$store.state.showroutes[0].btmatch == true
-                            ? _c(
-                                "router-link",
-                                {
-                                  staticClass: "nav-link",
-                                  attrs: { to: { name: "btmatch", params: {} } }
-                                },
-                                [_vm._v("Btmatch")]
-                              )
-                            : _vm._e()
-                        ],
-                        1
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.$store.state.showroutes[0].deletesoda == true
-                    ? _c(
-                        "li",
-                        {
-                          staticClass: "nav-item",
-                          class: {
-                            active: _vm.$store.state.activeTab == "deletesoda"
-                          },
-                          nativeOn: {
-                            click: function($event) {
-                              return _vm.changeActiveTab("deletesoda")
-                            }
-                          }
-                        },
-                        [
-                          _vm.$store.state.showroutes[0].deletesoda == true
-                            ? _c(
-                                "router-link",
-                                {
-                                  staticClass: "nav-link",
-                                  attrs: {
-                                    to: { name: "deletesoda", params: {} }
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    " DeleteSoda\n                                    "
-                                  )
-                                ]
-                              )
-                            : _vm._e()
-                        ],
-                        1
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.$store.state.showroutes[0].dplusm == true
-                    ? _c(
-                        "li",
-                        {
-                          staticClass: "nav-item",
-                          class: {
-                            active: _vm.$store.state.activeTab == "dplusm"
-                          },
-                          nativeOn: {
-                            click: function($event) {
-                              return _vm.changeActiveTab("dplusm")
-                            }
-                          }
-                        },
-                        [
-                          _vm.$store.state.showroutes[0].dplusm == true
-                            ? _c(
-                                "router-link",
-                                {
-                                  staticClass: "nav-link",
-                                  attrs: { to: { name: "dplusm", params: {} } }
-                                },
-                                [_vm._v("Dplusm")]
-                              )
-                            : _vm._e()
-                        ],
-                        1
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.$store.state.showroutes[0].fancy1 == true
-                    ? _c(
-                        "li",
-                        {
-                          staticClass: "nav-item",
-                          class: {
-                            active: _vm.$store.state.activeTab == "fancy1"
-                          },
-                          nativeOn: {
-                            click: function($event) {
-                              return _vm.changeActiveTab("fancy1")
-                            }
-                          }
-                        },
-                        [
-                          _vm.$store.state.showroutes[0].fancy1 == true
-                            ? _c(
-                                "router-link",
-                                {
-                                  staticClass: "nav-link",
-                                  attrs: { to: { name: "fancy1", params: {} } }
-                                },
-                                [
-                                  _vm._v(
-                                    "Fancy1\n                                    "
-                                  )
-                                ]
-                              )
-                            : _vm._e()
-                        ],
-                        1
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.$store.state.showroutes[0].sodaexcel == true
-                    ? _c(
-                        "li",
-                        {
-                          staticClass: "nav-item",
-                          class: {
-                            active: _vm.$store.state.activeTab == "sodaexcel"
-                          },
-                          nativeOn: {
-                            click: function($event) {
-                              return _vm.changeActiveTab("sodaexcel")
-                            }
-                          }
-                        },
-                        [
-                          _vm.$store.state.showroutes[0].sodaexcel == true
-                            ? _c(
-                                "router-link",
-                                {
-                                  staticClass: "nav-link",
-                                  attrs: {
-                                    to: { name: "sodaexcel", params: {} }
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "Sodaexcel\n                                    "
-                                  )
-                                ]
-                              )
-                            : _vm._e()
-                        ],
-                        1
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.$store.state.showroutes[0].rules == true
-                    ? _c(
-                        "li",
-                        {
-                          staticClass: "nav-item",
-                          class: {
-                            active: _vm.$store.state.activeTab == "rules"
-                          },
-                          nativeOn: {
-                            click: function($event) {
-                              return _vm.changeActiveTab("rules")
-                            }
-                          }
-                        },
-                        [
-                          _vm.$store.state.showroutes[0].rules == true
-                            ? _c(
-                                "router-link",
-                                {
-                                  staticClass: "nav-link",
-                                  attrs: { to: { name: "rules", params: {} } }
-                                },
-                                [_vm._v("Rules")]
-                              )
-                            : _vm._e()
-                        ],
-                        1
-                      )
-                    : _vm._e()
+                    ],
+                    1
+                  )
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "float-right" }, [
@@ -21004,111 +20696,92 @@ var render = function() {
     _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "d-flex justify-content-center h-100" }, [
         _c("div", { staticClass: "user_card" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "d-flex justify-content-center form_container" },
-            [
-              _c(
-                "form",
-                {
-                  on: {
-                    submit: function($event) {
-                      $event.preventDefault()
-                      return _vm.login($event)
-                    }
+          _c("div", { staticClass: "d-flex justify-content-center" }, [
+            _c(
+              "form",
+              {
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.login($event)
                   }
-                },
-                [
-                  _c("div", { staticClass: "input-group mb-3" }, [
-                    _vm._m(1),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.email,
-                          expression: "email"
-                        }
-                      ],
-                      staticClass: "form-control input_user",
-                      attrs: {
-                        type: "text",
-                        name: "email",
-                        value: "",
-                        placeholder: "email",
-                        required: ""
-                      },
-                      domProps: { value: _vm.email },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.email = $event.target.value
-                        }
-                      }
-                    })
-                  ]),
+                }
+              },
+              [
+                _c("div", { staticClass: "input-group mb-3" }, [
+                  _vm._m(0),
                   _vm._v(" "),
-                  _c("div", { staticClass: "input-group mb-2" }, [
-                    _vm._m(2),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.password,
-                          expression: "password"
-                        }
-                      ],
-                      staticClass: "form-control input_pass",
-                      attrs: {
-                        type: "password",
-                        name: "password",
-                        value: "",
-                        placeholder: "password",
-                        required: ""
-                      },
-                      domProps: { value: _vm.password },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.password = $event.target.value
-                        }
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.email,
+                        expression: "email"
                       }
-                    })
-                  ]),
+                    ],
+                    staticClass: "form-control input_user",
+                    attrs: {
+                      type: "text",
+                      name: "email",
+                      value: "",
+                      placeholder: "email",
+                      required: ""
+                    },
+                    domProps: { value: _vm.email },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.email = $event.target.value
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "input-group mb-2" }, [
+                  _vm._m(1),
                   _vm._v(" "),
-                  _vm._m(3)
-                ]
-              )
-            ]
-          )
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.password,
+                        expression: "password"
+                      }
+                    ],
+                    staticClass: "form-control input_pass",
+                    attrs: {
+                      type: "password",
+                      name: "password",
+                      value: "",
+                      placeholder: "password",
+                      required: ""
+                    },
+                    domProps: { value: _vm.password },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.password = $event.target.value
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _vm._m(2)
+              ]
+            )
+          ])
         ])
       ])
     ])
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "d-flex justify-content-center" }, [
-      _c("div", { staticClass: "brand_logo_container" }, [
-        _c("img", {
-          staticClass: "brand_logo",
-          attrs: { src: "/images/logo.png", alt: "Logo" }
-        })
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -37734,24 +37407,19 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 
 
 var ifNotAuthenticated = function ifNotAuthenticated(to, from, next) {
-  if (!_store__WEBPACK_IMPORTED_MODULE_7__["default"].getters.isLoggedIn) {
+  if (_store__WEBPACK_IMPORTED_MODULE_7__["default"].getters.isLoggedIn) {
+    next('about');
+  } else {
     next();
-    return;
   }
-
-  next('/dash');
 };
 
 var ifAuthenticated = function ifAuthenticated(to, from, next) {
-  if (_store__WEBPACK_IMPORTED_MODULE_7__["default"].getters.isLoggedIn) {// if (store.state.showroutes[0][to.name] == true) {
-    //     next()
-    //     return
-    // } else {
-    //     next('/404')
-    // }
+  if (_store__WEBPACK_IMPORTED_MODULE_7__["default"].getters.isLoggedIn) {
+    next();
+  } else {
+    next('login');
   }
-
-  next('/login');
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
@@ -37774,7 +37442,7 @@ var ifAuthenticated = function ifAuthenticated(to, from, next) {
     path: '/about',
     name: 'about',
     component: _views_About__WEBPACK_IMPORTED_MODULE_4__["default"],
-    beforeEnter: ifNotAuthenticated
+    beforeEnter: ifAuthenticated
   }, {
     path: '/login',
     name: 'login',
@@ -37782,7 +37450,7 @@ var ifAuthenticated = function ifAuthenticated(to, from, next) {
     beforeEnter: ifNotAuthenticated
   }, {
     path: '/',
-    name: 'login',
+    name: 'index',
     component: _views_Login__WEBPACK_IMPORTED_MODULE_2__["default"],
     beforeEnter: ifNotAuthenticated
   }, {
@@ -37816,7 +37484,7 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {
-    status: localStorage.getItem('status') || '',
+    status: '',
     token: localStorage.getItem('token') || '',
     username: localStorage.getItem('username')
   },
@@ -37828,11 +37496,6 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
       state.status = 'success';
       state.username = data.email;
       state.token = data.token;
-      localStorage.setItem('status', 'success');
-      localStorage.setItem('token', data.token);
-      localStorage.setItem('username', data.email);
-      state.firstRoute = 'Dash';
-      console.log(state);
     },
     auth_error: function auth_error(state) {
       state.status = 'error';
@@ -37842,7 +37505,6 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
       state.token = '';
       state.activeTab = '';
       state.activeSubTab = '';
-      state.firstRoute = 'login';
     }
   },
   actions: {
@@ -37857,6 +37519,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
         }).then(function (resp) {
           if (resp.data.status == 200) {
             axios__WEBPACK_IMPORTED_MODULE_2___default.a.defaults.headers.common['Authorization'] = resp.data.data.token;
+            localStorage.setItem('token', resp.data.data.token);
+            localStorage.setItem('username', resp.data.data.email);
             commit('auth_success', resp.data.data);
             resolve(resp);
           } else {
@@ -38102,14 +37766,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!**************************************!*\
   !*** ./resources/js/views/Login.vue ***!
   \**************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Login_vue_vue_type_template_id_12f5395a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Login.vue?vue&type=template&id=12f5395a& */ "./resources/js/views/Login.vue?vue&type=template&id=12f5395a&");
 /* harmony import */ var _Login_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Login.vue?vue&type=script&lang=js& */ "./resources/js/views/Login.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Login_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Login_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -38139,7 +37804,7 @@ component.options.__file = "resources/js/views/Login.vue"
 /*!***************************************************************!*\
   !*** ./resources/js/views/Login.vue?vue&type=script&lang=js& ***!
   \***************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

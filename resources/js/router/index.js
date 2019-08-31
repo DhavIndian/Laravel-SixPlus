@@ -6,31 +6,26 @@ Vue.use(Router)
 import Login from '@/views/Login'
 import Dash from '@/views/Dash'
 import About from '@/views/About'
-
 import Notfound from '@/views/404'
 import Userdetail from '@/views/Userdetail'
-
 import store from '@/store'
 
 const ifNotAuthenticated = (to, from, next) => {
-    if (!store.getters.isLoggedIn) {
-        next()
-        return
+    if (store.getters.isLoggedIn) {
+        next('about');
+    } else {
+        next();
     }
-    next('/dash')
+
 }
 
 const ifAuthenticated = (to, from, next) => {
     if (store.getters.isLoggedIn) {
-        // if (store.state.showroutes[0][to.name] == true) {
-        //     next()
-        //     return
-        // } else {
-        //     next('/404')
-        // }
-
+        next();
+    } else {
+        next('login');
     }
-    next('/login')
+
 }
 
 export default new Router({
@@ -56,7 +51,7 @@ export default new Router({
             path: '/about',
             name: 'about',
             component: About,
-           beforeEnter: ifNotAuthenticated,
+            beforeEnter: ifAuthenticated,
         },
         {
             path: '/login',
@@ -66,7 +61,7 @@ export default new Router({
         },
         {
             path: '/',
-            name: 'login',
+            name: 'index',
             component: Login,
             beforeEnter: ifNotAuthenticated,
         },

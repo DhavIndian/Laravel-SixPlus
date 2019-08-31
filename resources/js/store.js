@@ -6,7 +6,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        status: localStorage.getItem('status') || '',
+        status: '',
         token: localStorage.getItem('token') || '',
         username: localStorage.getItem('username'),
     },
@@ -18,11 +18,6 @@ export default new Vuex.Store({
             state.status = 'success'
             state.username = data.email
             state.token = data.token
-            localStorage.setItem('status','success');
-            localStorage.setItem('token',data.token);
-            localStorage.setItem('username', data.email);
-            state.firstRoute = 'Dash';
-            console.log(state);
         },
         auth_error(state) {
             state.status = 'error'
@@ -32,7 +27,6 @@ export default new Vuex.Store({
             state.token = '';
             state.activeTab = '';
             state.activeSubTab = '';
-            state.firstRoute = 'login';
         },
 
     },
@@ -44,8 +38,9 @@ export default new Vuex.Store({
                     .then(resp => {
 
                         if (resp.data.status == 200) {
-
                             axios.defaults.headers.common['Authorization'] = resp.data.data.token;
+                            localStorage.setItem('token', resp.data.data.token);
+                            localStorage.setItem('username', resp.data.data.email);
                             commit('auth_success', resp.data.data)
                             resolve(resp)
                         } else {
