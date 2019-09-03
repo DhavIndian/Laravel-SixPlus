@@ -8,8 +8,12 @@
                         <nav class="navbar navbar-expand-md navbar-dark">
                             <div class="collapse navbar-collapse">
                                 <ul class="navbar-nav float-left">
-                                    <li class="nav-item" @click.native="changeActiveTab('about')" :class="{ 'active': $store.state.activeTab == 'about' }">
+                                    <li class="nav-item">
                                         <router-link class="nav-link" :to="{ name: 'about', params: {}}">About
+                                        </router-link>
+                                    </li>
+                                    <li class="nav-item">
+                                        <router-link class="nav-link" :to="{ name: 'dash', params: {}}">Dash
                                         </router-link>
                                     </li>
                                     

@@ -69,6 +69,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {},
   data: function data() {
@@ -293,15 +297,7 @@ var render = function() {
                 _c("ul", { staticClass: "navbar-nav float-left" }, [
                   _c(
                     "li",
-                    {
-                      staticClass: "nav-item",
-                      class: { active: _vm.$store.state.activeTab == "about" },
-                      nativeOn: {
-                        click: function($event) {
-                          return _vm.changeActiveTab("about")
-                        }
-                      }
-                    },
+                    { staticClass: "nav-item" },
                     [
                       _c(
                         "router-link",
@@ -310,6 +306,22 @@ var render = function() {
                           attrs: { to: { name: "about", params: {} } }
                         },
                         [_vm._v("About\n                                    ")]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    { staticClass: "nav-item" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "nav-link",
+                          attrs: { to: { name: "dash", params: {} } }
+                        },
+                        [_vm._v("Dash\n                                    ")]
                       )
                     ],
                     1

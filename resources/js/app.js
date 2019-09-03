@@ -3,11 +3,8 @@ import VueRouter from 'vue-router'
 import App from './App.vue'
 import router from './router/'
 import store from './store'
-
 import Toasted from 'vue-toasted';
 import mixin from '@/mixins'
-
-
 
 Vue.use(VueRouter)
 Vue.mixin(mixin)
@@ -17,7 +14,6 @@ Vue.use(Toasted, {
     "theme": 'toasted-primary',
     "type": 'success'
 })
-
 
 const app = new Vue({
     el: '#app',
