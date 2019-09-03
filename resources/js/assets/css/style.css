@@ -441,8 +441,12 @@ ul {
 .navbar-dark .navbar-nav .nav-link:hover {
     color: #fff;
     font-size: 0.875rem;
+    
+}
+.router-link-exact-active{
+    border-bottom: solid 2px #ffaf16;
     font-weight: bold;
-    background:#c1943f;
+    background: #ab7902
 }
 
 .header-bottom .navbar-dark .navbar-nav .nav-link,
