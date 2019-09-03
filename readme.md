@@ -29,12 +29,12 @@ Running tests :
 
 Discover package
 ```bash
-$ docker-compose run --rm --no-deps blog-server php artisan package:discover
+$ 
 ```
 
 In development environnement, rebuild the database :
 ```bash
-$ docker-compose run --rm blog-server php artisan migrate:fresh --seed
+$
 ```
 
 ## Contributing
