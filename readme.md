@@ -1,4 +1,4 @@
-# Laravel 6.0 Optimized With Vue JS Fast Page Loading No Waiting
+# Laravel 6.0 Optimized With Vue JS Frontend With Passport Authentication
 ## Installation
 
 Development environment requirements :
