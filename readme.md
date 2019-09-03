@@ -3,4 +3,7 @@ Commands
 composer install 
 database name laravel
 username root
-password 
+password ''
+
+
+This is a Optimized Structure of laravel vue , app loades within seconds
