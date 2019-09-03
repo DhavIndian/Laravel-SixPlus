@@ -17,24 +17,19 @@ Now you can access the application via [http://localhost:8000](http://localhost:
 
 
 ## Useful commands
-Seeding the database :
+migration the database :
 ```bash
-
+$ php artisan make:migration
 ```
 
-Running tests :
+Running App In Development Mode :
 ```bash
-
+$ npm run dev
 ```
 
-Discover package
+Running App In Production  Mode :
 ```bash
-$ 
-```
-
-In development environnement, rebuild the database :
-```bash
-$
+$ npm run prod
 ```
 
 ## Contributing
