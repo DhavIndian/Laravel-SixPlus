@@ -11,7 +11,7 @@ import axios from 'axios'
 export default {
 
     mounted() {
-            this.$store.dispatch('showsubnenu',{'flag':false});
+
     },
     name: "HomeVue",
     components: {

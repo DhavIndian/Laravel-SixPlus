@@ -1,14 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from '@/store'
 
 Vue.use(Router)
 
-import Login from '@/views/Login'
-import Dash from '@/views/Dash'
-import About from '@/views/About'
-import Notfound from '@/views/404'
-import Userdetail from '@/views/Userdetail'
-import store from '@/store'
+const Login = () => import('@/views/Login');
+const About = () => import('@/views/About');
+const Dash = () => import('@/views/Dash');
+const Notfound = () => import('@/views/404');
+const Userdetail = () => import('@/views/Userdetail');
+
 
 const ifNotAuthenticated = (to, from, next) => {
     if (store.getters.isLoggedIn) {
@@ -51,6 +52,7 @@ export default new Router({
             path: '/about',
             name: 'about',
             component: About,
+
             beforeEnter: ifAuthenticated,
         },
         {

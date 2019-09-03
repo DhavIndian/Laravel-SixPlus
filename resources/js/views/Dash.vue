@@ -8,7 +8,6 @@
   import LayoutBasic from './../components/layouts/Basic'
   export default {
   	mounted() {
-		this.$store.dispatch('showsubnenu',{'flag':false});
             
     },
     components: {
