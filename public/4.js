@@ -43,7 +43,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       email: "",
       password: "",
-      r_route: []
+      submitted: false
     };
   },
   methods: {
@@ -52,10 +52,13 @@ __webpack_require__.r(__webpack_exports__);
 
       var email = this.email;
       var password = this.password;
+      this.submitted = true;
       this.$store.dispatch('login', {
         email: email,
         password: password
       }).then(function () {
+        _this.submitted = false;
+
         _this.$router.push({
           name: 'about'
         });
@@ -163,7 +166,20 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _vm._m(2)
+                _c("div", { staticClass: "input-group mb-2" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn login_btn",
+                      attrs: {
+                        disabled: _vm.submitted,
+                        type: "submit",
+                        name: "button"
+                      }
+                    },
+                    [_vm._v("Login")]
+                  )
+                ])
               ]
             )
           ])
@@ -191,21 +207,6 @@ var staticRenderFns = [
       _c("span", { staticClass: "input-group-text" }, [
         _c("i", { staticClass: "fas fa-key" })
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "input-group mb-2" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn login_btn",
-          attrs: { type: "submit", name: "button" }
-        },
-        [_vm._v("Login")]
-      )
     ])
   }
 ]

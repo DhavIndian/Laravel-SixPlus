@@ -18,7 +18,7 @@
                                 <input type="password" name="password" v-model="password" class="form-control input_pass" value="" placeholder="password" required>
                             </div>
                             <div class="input-group mb-2">
-                                <button type="submit" name="button" class="btn login_btn">Login</button>
+                                <button :disabled="submitted" type="submit" name="button" class="btn login_btn">Login</button>
                             </div>
                         </form>
                     </div>
@@ -33,18 +33,21 @@ export default {
         return {
             email: "",
             password: "",
-            r_route: []
+            submitted: false
         }
     },
     methods: {
         login: function() {
             let email = this.email
             let password = this.password
+            this.submitted = true;
             this.$store.dispatch('login', { email, password })
                 .then(() => {
+                    this.submitted = false;
                     this.$router.push({ name: 'about' })
                 })
                 .catch(err => console.log(err))
+                
         }
     }
 }
