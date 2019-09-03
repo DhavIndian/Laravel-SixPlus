@@ -16,29 +16,6 @@ Now you can access the application via [http://localhost:8000](http://localhost:
 
 **There is no need to run ```php artisan serve```. PHP is already running in a dedicated container.**
 
-## Before starting
-You need to run the migrations with the seeds :
-```bash
-$ docker-compose run --rm blog-server php artisan migrate --seed
-```
-
-This will create a new user that you can use to sign in :
-```yml
-email: darthvader@deathstar.ds
-password: 4nak1n
-```
-
-And then, compile the assets :
-```bash
-$ docker run --rm -it -v $(pwd):/app -w /app node yarn dev
-```
-
-Starting job for newsletter :
-```bash
-$ docker-compose run blog-server php artisan tinker
-> PrepareNewsletterSubscriptionEmail::dispatch();
-```
-
 ## Useful commands
 Seeding the database :
 ```bash
