@@ -1,9 +1,9 @@
-
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
 body {
     margin: 0;
     padding: 0;
-    height: 100vh;
-    background-color: #efefef
+    background-color: #efefef;
+    font-family: 'Oswald', sans-serif !important;
 }
 
 /*Margins*/
@@ -270,47 +270,18 @@ ul {
     border: 1px solid #008577;
 }
 
-/*.form-control
-{
-  width: auto;
-  min-width: 100px;
-}*/
-/*.login
-{
-  background-color: #ccc;
-  height: 100vh;
-}
-.login .login-box {
-  margin-top: 120px;
-  max-width: 600px;
-  background-color: rgba(0,0,0,0.4);
-  border-radius: 4px;
-}
-.login .login-form {
-  padding: 20px;
-}
-.login .form-group
-{
-  position: relative;
-}
-.login .login-form .error
-{
-  position: absolute;
-  top: 100%;
-  font-size: 12px;
-  line-height: 12px;
-  padding-top: 5px;
-}
-.login .login-form .btn-submit
-{
-  background-color: #FFB80C;
-  border-color: #FFB80C;
-  color: #000;
-}*/
-
 .login {
     background-color: #6d4d00;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
+}
+.btn-primary{
+    background-color: #6d4d00 !important;
+    border-color:#6d4e14;
+}
+.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show>.btn-primary.dropdown-toggle:focus
+{
+   box-shadow: 0 0 0 0.2rem rgba(109,78,20,.5);
 }
 
 .user_card {
@@ -390,8 +361,9 @@ ul {
 }
 
 .header-top {
-    background-color: #b58324;
-    padding: 5px 0 0 0;
+    background-color: #544404;
+    padding: 7px 0 0 0px;
+    color: #fff
 }
 
 .logo h4 {
@@ -443,7 +415,7 @@ ul {
 .router-link-exact-active{
     border-bottom: solid 2px #ffaf16;
     font-weight: bold;
-    background: #ab7902
+    background: #6d4d00
 }
 
 .header-bottom .navbar-dark .navbar-nav .nav-link,
@@ -505,6 +477,7 @@ ul {
 .navbar-expand-md .navbar-nav .nav-link {
     padding-left: 1rem;
     padding-right: 1rem;
+    padding-bottom: 3px;
 }
 
 .form-check-input {
@@ -518,7 +491,7 @@ ul {
 
 .table thead tr {
     background-color: #6d4d00;
-    color: #000;
+    color: #fff;
 }
 
 .table-bordered td,
