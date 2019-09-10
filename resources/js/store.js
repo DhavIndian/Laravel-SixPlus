@@ -42,10 +42,11 @@ export default new Vuex.Store({
                             localStorage.setItem('token', resp.data.data.token);
                             localStorage.setItem('username', resp.data.data.email);
                             commit('auth_success', resp.data.data)
-                            resolve(resp)
+                            
                         } else {
-                            alert("Username Password Not Match")
+                            // Vue.toasted.error("Username Password Not Match");
                         }
+                        resolve(resp)
 
                     })
                     .catch(err => {

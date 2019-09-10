@@ -47,6 +47,7 @@ export default {
         logout: function() {
             this.$store.dispatch('logout')
                 .then(() => {
+                    this.$toasted.show("You Are Logged Out")
                     this.$router.push('/logout')
                 })
         },

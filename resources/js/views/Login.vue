@@ -42,9 +42,17 @@ export default {
             let password = this.password
             this.submitted = true;
             this.$store.dispatch('login', { email, password })
-                .then(() => {
+                .then((data) => {
                     this.submitted = false;
-                    this.$router.push({ name: 'about' })
+                   
+                    if(data.data.status==200){
+                        this.$toasted.show(data.data.message)
+                        this.$router.push({ name: 'about' })
+                    }else{
+                        this.$toasted.error(data.data.message)
+                        //console.log(data);
+                    }
+                    
                 })
                 .catch(err => console.log(err))
                 

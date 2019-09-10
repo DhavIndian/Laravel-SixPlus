@@ -46,7 +46,8 @@ export default {
             axios({ url: this.dynurl, data: { 'name': this.p_name, 'detail': this.p_detail }, method: this.dynmethod })
                 .then(resp => {
                     if (resp.data.success == true) {
-                        this.$toasted.show(resp.data.message)
+                        this.$toasted.show(resp.data.message);
+                        this.$emit('myEvent');
                     } else {
                         this.$toasted.error(resp.data.message)
                     }
@@ -66,7 +67,7 @@ export default {
                 })
         },
         closebtn :function(){
-            this.$emit('myEvent')
+            
         }
     },
     props: ['dataid'],
