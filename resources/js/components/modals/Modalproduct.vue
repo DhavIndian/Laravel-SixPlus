@@ -9,8 +9,8 @@
                 </div>
                 <div class="modal-body">
                     <form  class="form-inline" method="POST" v-on:submit.prevent="createproduct">
-                        <input class="form-control" placeholder="Name" type="text" v-model="p_name" name="p_name">
-                        <input class="form-control" placeholder="Details" v-model="p_detail" type="text" name="p_detail">
+                        <input class="form-control" placeholder="Name" type="text" v-model="p_name" name="p_name" required="">
+                        <input class="form-control" placeholder="Details" v-model="p_detail" type="text" name="p_detail" required="">
                         <input class="btn btn-success" type="submit" value="Submit">
                     </form>
                 </div>
@@ -67,7 +67,8 @@ export default {
                 })
         },
         closebtn :function(){
-            
+            this.p_name = ''
+            this.p_detail = ''
         }
     },
     props: ['dataid'],

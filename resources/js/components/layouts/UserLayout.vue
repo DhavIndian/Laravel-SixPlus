@@ -2,7 +2,7 @@
     <div class="wrapper">
         <Header />
         <Submenu />
-         <slot />
+        <slot />
     </div>
 </template>
 <script>
@@ -16,7 +16,7 @@ export default {
     components: {
         'Header': Header,
         'Footer': Footer,
-        'Submenu' : Submenu,
+        'Submenu': Submenu,
     },
     data() {
         return {};

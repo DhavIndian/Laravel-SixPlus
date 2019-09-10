@@ -226,7 +226,10 @@ axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.headers.common['Authorizat
         _this2.p_detail = resp.data.data.detail;
       })["catch"](function (err) {});
     },
-    closebtn: function closebtn() {}
+    closebtn: function closebtn() {
+      this.p_name = '';
+      this.p_detail = '';
+    }
   },
   props: ['dataid'],
   watch: {
@@ -553,7 +556,12 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
-                  attrs: { placeholder: "Name", type: "text", name: "p_name" },
+                  attrs: {
+                    placeholder: "Name",
+                    type: "text",
+                    name: "p_name",
+                    required: ""
+                  },
                   domProps: { value: _vm.p_name },
                   on: {
                     input: function($event) {
@@ -578,7 +586,8 @@ var render = function() {
                   attrs: {
                     placeholder: "Details",
                     type: "text",
-                    name: "p_detail"
+                    name: "p_detail",
+                    required: ""
                   },
                   domProps: { value: _vm.p_detail },
                   on: {
