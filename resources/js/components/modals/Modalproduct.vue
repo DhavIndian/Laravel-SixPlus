@@ -8,7 +8,9 @@
                     <h4 class="modal-title">{{title}}</h4>
                 </div>
                 <div class="modal-body">
-                    <form  class="form-inline" method="POST" v-on:submit.prevent="createproduct">
+                    <form class="form-inline" method="POST" v-on:submit.prevent="createproduct">
+                        <input type="file" @change="onFileChanged">
+                        
                         <input class="form-control" placeholder="Name" type="text" v-model="p_name" name="p_name" required="">
                         <input class="form-control" placeholder="Details" v-model="p_detail" type="text" name="p_detail" required="">
                         <input class="btn btn-success" type="submit" value="Submit">
@@ -31,19 +33,36 @@ export default {
     },
     data() {
         return {
+            p_image: '',
             p_name: '',
             p_detail: '',
             op_type: '',
             title: 'Data Insert',
-            dynurl : './api/products',
-            dynmethod : "POST"
+            dynurl: './api/products',
+            dynmethod: "POST",
+            selectedFile: null
         };
     },
 
     components: {},
     methods: {
+        onFileChanged(event) {
+            this.selectedFile = event.target.files[0]
+            console.log(this.selectedFile)
+        },
         createproduct: function() {
-            axios({ url: this.dynurl, data: { 'name': this.p_name, 'detail': this.p_detail }, method: this.dynmethod })
+
+            const formData = new FormData()
+            formData.append('image', this.selectedFile)
+            formData.append('name', this.p_name)
+            formData.append('detail', this.p_detail)
+
+            axios({
+                    method: this.dynmethod,
+                    url: this.dynurl,
+                    data: formData,
+                    config: { headers: { 'Content-Type': 'multipart/form-data' } }
+                })
                 .then(resp => {
                     if (resp.data.success == true) {
                         this.$toasted.show(resp.data.message);
@@ -56,17 +75,17 @@ export default {
 
                 })
         },
-        fetchbyid : function(id){
-             axios({ url: './api/products/'+id, data: {}, method: 'GET' })
+        fetchbyid: function(id) {
+            axios({ url: './api/products/' + id, data: {}, method: 'GET' })
                 .then(resp => {
-                   this.p_name = resp.data.data.name
-                   this.p_detail = resp.data.data.detail
+                    this.p_name = resp.data.data.name
+                    this.p_detail = resp.data.data.detail
                 })
                 .catch(err => {
 
                 })
         },
-        closebtn :function(){
+        closebtn: function() {
             this.p_name = ''
             this.p_detail = ''
         }
@@ -76,7 +95,7 @@ export default {
         dataid: function(newVal, oldVal) { // watch it
             if (newVal != '') {
                 this.title = "Data Update";
-                this.dynurl = "./api/products/"+newVal;
+                this.dynurl = "./api/products/" + newVal;
                 this.dynmethod = "PUT"
             } else {
                 this.title = "Data Insert";
@@ -84,7 +103,7 @@ export default {
                 this.dynmethod = "POST"
             }
 
-            if(newVal != oldVal){
+            if (newVal != oldVal) {
                 this.fetchbyid(newVal)
             }
         }

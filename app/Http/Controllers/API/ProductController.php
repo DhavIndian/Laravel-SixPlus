@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\API\BaseController as BaseController;
 use App\Product;
+use File;
 use Illuminate\Http\Request;
 use Validator;
 
@@ -30,7 +31,23 @@ class ProductController extends BaseController {
 		$validator = Validator::make($input, [
 			'name' => 'required',
 			'detail' => 'required',
+			'image.*' => 'mimes:jpg,jpeg,png|max:4096',
 		]);
+
+		if ($request->hasFile('image')) {
+			$allowedfileExtension = ['jpeg', 'jpg', 'png'];
+			$file = $request->file('image');
+			$extension = $file->getClientOriginalExtension();
+			$check = in_array($extension, $allowedfileExtension);
+			if ($check) {
+				$destinationPath = 'uploads/images';
+				$file->move($destinationPath, $file->getClientOriginalName());
+				$input['image'] = $destinationPath . "/" . $file->getClientOriginalName();
+			} else {
+				return $this->sendError('Please Uplod Png and Jpg Only', $validator->errors());
+			}
+
+		}
 
 		if ($validator->fails()) {
 			return $this->sendError('Validation Error.', $validator->errors());
@@ -85,7 +102,11 @@ class ProductController extends BaseController {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function destroy(Product $product) {
+		$id = $product->id;
+		$unlink_p = Product::find($id, ['image']);
+		$filename = $unlink_p['image'];
 		$product->delete();
+		File::delete($filename);
 		return $this->sendResponse($product->toArray(), 'Product deleted successfully.');
 	}
 }

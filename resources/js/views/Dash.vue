@@ -5,17 +5,18 @@
             <div class="card">
                 <div class="card-header">Product Data <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#op_product" @click="dataid=''">Insert</button></div>
                 <div class="card-body">
-                    <table class="table">
+                    <BulletList-loader v-if="!dash" :speed="2" :animate="true"></BulletList-loader>
+                    <table v-else class="table">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>Image</th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tr v-for="d in dash.data">
-                            <td>{{ d.id }}</td>
+                            <td><img style="height: 60px;width: 60px; border-radius: 50%" v-bind:src="d.image"></td>
                             <td>{{ d.name }}</td>
                             <td>{{ d.detail }}</td>
                             <td>
@@ -32,22 +33,24 @@
 <script>
 import LayoutBasic from './../components/layouts/Basic'
 import ModalProduct from './../components/modals/Modalproduct'
+import { BulletListLoader } from 'vue-content-loader';
 
 import axios from 'axios'
 axios.defaults.headers.common['Authorization'] = "Bearer " + localStorage.getItem("token");
 export default {
     mounted() {
-        this.getallproducts();
+      this.getallproducts();
     },
     data() {
         return {
-            dash: {},
+            dash: null,
             dataid: ''
         }
     },
     components: {
         LayoutBasic,
-        ModalProduct
+        ModalProduct,
+        BulletListLoader
     },
     methods: {
         getallproducts: function() {

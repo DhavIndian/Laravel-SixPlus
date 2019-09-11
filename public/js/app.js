@@ -18805,7 +18805,7 @@ var About = function About() {
 };
 
 var Dash = function Dash() {
-  return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! @/views/Dash */ "./resources/js/views/Dash.vue"));
+  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! @/views/Dash */ "./resources/js/views/Dash.vue"));
 };
 
 var Notfound = function Notfound() {
