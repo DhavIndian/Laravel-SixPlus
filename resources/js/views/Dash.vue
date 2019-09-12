@@ -1,9 +1,9 @@
 <template>
     <layout-basic>
-        <modal-product v-on:myEvent="getallproducts" :dataid="dataid"></modal-product>
+        <modal-product ref="child" v-on:myEvent="getallproducts" :dataid="dataid"></modal-product>
         <div class="container-fluid">
             <div class="card">
-                <div class="card-header">Product Data <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#op_product" @click="dataid=''">Insert</button></div>
+                <div class="card-header">Product Data <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#op_product" @click="$refs.child.changetitile()">Insert</button></div>
                 <div class="card-body">
                     <BulletList-loader v-if="!dash" :speed="2" :animate="true"></BulletList-loader>
                     <table v-else class="table">
@@ -20,7 +20,7 @@
                             <td>{{ d.name }}</td>
                             <td>{{ d.detail }}</td>
                             <td>
-                                <button class="btn btn-info" data-toggle="modal" data-target="#op_product" @click="dataid=d.id">Edit</button>
+                                <button class="btn btn-info" data-toggle="modal" data-target="#op_product" @click="$refs.child.fetchbyid(d.id)">Edit</button>
                                 <button class="btn btn-danger" @click="removeproducts(d.id)" data-toggle="modal">Remove</button>
                             </td>
                         </tr>
@@ -39,7 +39,7 @@ import axios from 'axios'
 axios.defaults.headers.common['Authorization'] = "Bearer " + localStorage.getItem("token");
 export default {
     mounted() {
-      this.getallproducts();
+        this.getallproducts();
     },
     data() {
         return {
@@ -76,6 +76,7 @@ export default {
 
                 })
         }
+
     }
 }
 

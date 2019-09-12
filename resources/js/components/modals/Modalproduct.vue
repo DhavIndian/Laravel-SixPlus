@@ -9,12 +9,14 @@
                 </div>
                 <div class="modal-body">
                     <form class="form-inline" method="POST" v-on:submit.prevent="createproduct">
-                        <input type="file" @change="onFileChanged">
-                        
+                        <input type="file" v-if="uploadReady" @change="onFileChanged">
                         <input class="form-control" placeholder="Name" type="text" v-model="p_name" name="p_name" required="">
                         <input class="form-control" placeholder="Details" v-model="p_detail" type="text" name="p_detail" required="">
                         <input class="btn btn-success" type="submit" value="Submit">
                     </form>
+                    <div id="preview">
+                        <img v-if="url" :src="url" />
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" @click="closebtn" data-dismiss="modal">Close</button>
@@ -40,7 +42,10 @@ export default {
             title: 'Data Insert',
             dynurl: './api/products',
             dynmethod: "POST",
-            selectedFile: null
+            selectedFile: '',
+            url: '',
+            uploadReady: true
+
         };
     },
 
@@ -48,7 +53,7 @@ export default {
     methods: {
         onFileChanged(event) {
             this.selectedFile = event.target.files[0]
-            console.log(this.selectedFile)
+            this.url = URL.createObjectURL(this.selectedFile);
         },
         createproduct: function() {
 
@@ -56,9 +61,10 @@ export default {
             formData.append('image', this.selectedFile)
             formData.append('name', this.p_name)
             formData.append('detail', this.p_detail)
+            formData.append('_method', this.dynmethod)
 
             axios({
-                    method: this.dynmethod,
+                    method: 'POST',
                     url: this.dynurl,
                     data: formData,
                     config: { headers: { 'Content-Type': 'multipart/form-data' } }
@@ -76,38 +82,39 @@ export default {
                 })
         },
         fetchbyid: function(id) {
+            this.title = "Data Update";
+            this.dynurl = "./api/products/" + id;
+            this.dynmethod = "PUT"
             axios({ url: './api/products/' + id, data: {}, method: 'GET' })
                 .then(resp => {
                     this.p_name = resp.data.data.name
                     this.p_detail = resp.data.data.detail
+                    this.url = resp.data.data.image
                 })
                 .catch(err => {
 
                 })
         },
         closebtn: function() {
+            this.selectedFile = ''
+            this.dataid = ''
             this.p_name = ''
             this.p_detail = ''
+            this.url = ''
+            this.uploadReady = false
+            this.$nextTick(() => {
+                this.uploadReady = true
+            })
+        },
+        changetitile: function() {
+            this.closebtn()
+            this.title = "Data Insert"
+            this.dynurl = "./api/products"
+            this.dynmethod = "POST"
         }
     },
     props: ['dataid'],
-    watch: {
-        dataid: function(newVal, oldVal) { // watch it
-            if (newVal != '') {
-                this.title = "Data Update";
-                this.dynurl = "./api/products/" + newVal;
-                this.dynmethod = "PUT"
-            } else {
-                this.title = "Data Insert";
-                this.dynurl = "./api/products/";
-                this.dynmethod = "POST"
-            }
-
-            if (newVal != oldVal) {
-                this.fetchbyid(newVal)
-            }
-        }
-    }
+    watch: {}
 }
 
 </script>

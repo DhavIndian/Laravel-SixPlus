@@ -83,12 +83,35 @@ class ProductController extends BaseController {
 		$validator = Validator::make($input, [
 			'name' => 'required',
 			'detail' => 'required',
+			'image.*' => 'mimes:jpg,jpeg,png|max:4096',
 		]);
 
 		if ($validator->fails()) {
 			return $this->sendError('Validation Error.', $validator->errors());
 		}
 
+		$unlink_p = Product::find($product->id, ['image']);
+		$filename = $unlink_p['image'];
+		if ($request->hasFile('image')) {
+			$allowedfileExtension = ['jpeg', 'jpg', 'png'];
+			$file = $request->file('image');
+			$extension = $file->getClientOriginalExtension();
+			$check = in_array($extension, $allowedfileExtension);
+			if ($check) {
+				$destinationPath = 'uploads/images';
+				$file->move($destinationPath, $file->getClientOriginalName());
+				$input['image'] = $destinationPath . "/" . $file->getClientOriginalName();
+				File::delete($filename);
+
+			} else {
+				return $this->sendError('Please Uplod Png and Jpg Only', $validator->errors());
+			}
+
+		} else {
+			$input['image'] = $filename;
+		}
+
+		$product->image = $input['image'];
 		$product->name = $input['name'];
 		$product->detail = $input['detail'];
 		$product->save();
